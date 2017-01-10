@@ -33,3 +33,6 @@ install:
 		| sed "s;ZONETYPE;$$ZONETYPE;g" \
 		| sed "s;FILEPATH;$$FILEPATH;g" 1>> ${NAMEDCONF}; \
 	done
+
+uninstall:
+	rm -rfv -- ${BINDPATH}
