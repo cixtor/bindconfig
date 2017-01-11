@@ -37,5 +37,8 @@ install:
 uninstall:
 	rm -rfv -- ${BINDPATH}
 
+test:
+	${INSTALLATION}/sbin/named -p 53 -f -g -c ${NAMEDCONF}
+
 update:
 	wget "https://www.internic.net/zones/named.cache" -O zones/root.db
