@@ -36,3 +36,6 @@ install:
 
 uninstall:
 	rm -rfv -- ${BINDPATH}
+
+update:
+	wget "https://www.internic.net/zones/named.cache" -O zones/root.db
