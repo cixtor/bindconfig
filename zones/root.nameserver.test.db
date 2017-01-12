@@ -1,0 +1,8 @@
+; BIND zone file for root.nameserver.test
+
+$TTL 86400
+
+@ 900 IN SOA root.nameserver.test. localhost. 1 7200 900 1209600 86400
+@ 172729 IN NS root.nameserver.test.
+@ 7200 IN A 127.0.0.50
+@ 7200 IN AAAA ::1
