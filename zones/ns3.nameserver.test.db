@@ -1,0 +1,8 @@
+; BIND zone file for ns3.nameserver.test
+
+$TTL 86400
+
+@ 900 IN SOA ns3.nameserver.test. root.nameserver.test. 1 7200 900 1209600 86400
+@ 172691 IN NS ns3.nameserver.test.
+@ 7200 IN A 127.0.0.53
+@ 7200 IN AAAA ::1
