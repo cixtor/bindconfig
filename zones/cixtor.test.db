@@ -1,0 +1,16 @@
+; BIND zone file for cixtor.test
+
+$TTL 7200
+
+@        7200  IN  SOA    ns1.nameserver.test. root.nameserver.test. 2016041809 14400 7200 1209600 86400
+@        7200  IN  NS     ns1.nameserver.test.
+@        7200  IN  NS     ns2.nameserver.test.
+@        7200  IN  NS     ns3.nameserver.test.
+@        7200  IN  NS     ns4.nameserver.test.
+@        360   IN  A      173.254.28.113
+@        7200  IN  MX     0 mail.cixtor.test.
+@        7200  IN  TXT    "v=spf1 +a +mx +ip4:173.254.28.113 ?all"
+mail     7200  IN  A      173.254.28.113
+smtp     7200  IN  CNAME  mail.cixtor.test.
+webmail  7200  IN  A      173.254.28.113
+www      360   IN  A      173.254.28.113
