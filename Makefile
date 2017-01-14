@@ -42,3 +42,19 @@ test:
 
 update:
 	wget "https://www.internic.net/zones/named.cache" -O zones/root.db
+
+check:
+	named-checkconf ${BINDPATH}/named.conf
+	@for FILENAME in $$(ls -1 zones/); do \
+		FILEPATH="zones/$${FILENAME}"; \
+		DOMAIN=$$(echo "$$FILENAME" | rev | cut -c4-100 | rev); \
+		RESULT=$$(named-checkzone "$${DOMAIN}" "$${FILEPATH}"); \
+		if [[ "$${?}" -eq 0 ]]; then \
+			echo "- OK    \"$${DOMAIN}\""; \
+		elif [[ "$${DOMAIN}" == "root" ]]; then \
+			echo "- WARN  \"$${DOMAIN}\""; \
+		else \
+			echo "- ERROR \"$${DOMAIN}\""; \
+			echo "$${RESULT}"; \
+		fi; \
+	done
