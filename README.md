@@ -22,6 +22,8 @@ sudo brew services start bind
 sudo brew services list
 ```
 
+Additional actions are available in the _Makefile_ to uninstall the configuration files, be sure to stop the DNS service before executing this task. Also, you can test if the installation process worked by calling `make test` or update the content of the root DNS zone file by executing `make update`. Check the syntax of the existing DNS zone files located in `./zones/*.db` by executing `make check`, you can add more of these files to support your own domain names and then restart the DNS service to push the information live.
+
 ### Configure DNS Resolution
 
 - Open "System Preferences.app" > Network > Advanced > DNS
